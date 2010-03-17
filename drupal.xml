@@ -1,0 +1,137 @@
+<snippets license="LGPL v3+" filetypes="PHP/PHP;PHP (HTML)" authors="Daniel Wehner" name="drupal">
+ <item>
+  <displayprefix></displayprefix>
+  <match>hook</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>/**
+ * Implements hook_${hook}().
+ */
+function ${modulename}_${hook}(${params}) {
+  ${cursor}
+}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>hook_update_N</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>/**
+ * Implements hook_update_N().
+ *
+ * ${description}
+ */
+function ${module}_update_6${number}() {
+  $ret = array();
+  ${cursor}
+
+  return $ret;
+}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>menu_item</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>$items['${path}'] = array(
+  'title' => '${title}',
+  'page callback' => '${callback}',
+  'page arguments' => array(${arguments}),
+  'access arguments' => array(${access arguments}),
+);</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>php</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>&lt;?php
+// $Id$
+${cursor}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>simpletest</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>class ${class} extends ${DrupalWebTestCase} {
+  public static function getInfo() {
+    return array(
+      'name' => '${name}',
+      'description' => '${description}',
+      'group' => '${group}',
+    );
+  }
+
+  public function setUp() {
+    parent::setUp(); ${cursor_0}
+  }
+  
+  ${cursor_1}
+}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>simpletest_method</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>public function test${name}() {
+  ${cursor}
+}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>cache</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments>(cacheid, result)</displayarguments>
+  <fillin>$cache = cache_get('${cacheid}');
+if ($cache == 0) {
+    // Cache expired
+    ${calculate}
+    cache_set('${cacheid}', $${result}, 'cache', CACHE_TEMPORARY);
+  }
+  else {
+    $${result} = $cache->data;
+  }
+}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>hook_update_weight</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>/**
+ * Implements hook_update_N().
+ *
+ * Change weight of ${module} to ${weight}
+ */
+function ${module}_update_6${number}() {
+  $ret = array();
+  update_sql($ret, "UPDATE {system} set weight = ${weight} WHERE type = 'module' AND name = '${module}'");
+
+  return $ret;
+}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>form_item</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>   $form['${element}'] = array(
+    '#type' => '${type}',
+    '#title' => t('${title}'),
+    '#default_value' => ${default_value},
+    '#description' => t('${description}'),
+  );</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>query</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>$result = db_query("${query}", ${arguments});
+while ($item = ${db_fetch_object}($result)) {
+  ${cursor}
+}</fillin>
+ </item>
+</snippets>
