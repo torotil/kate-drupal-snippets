@@ -134,4 +134,17 @@ while ($item = ${db_fetch_object}($result)) {
   ${cursor}
 }</fillin>
  </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>hook_form_alter</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>/**
+ * Implements hook_form_alter().
+ */
+function ${modulename}_form_alter(&amp;$form, &amp;$form_state) {
+  ${cursor}
+}
+</fillin>
+ </item>
 </snippets>
