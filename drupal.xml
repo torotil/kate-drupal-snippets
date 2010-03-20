@@ -147,4 +147,18 @@ function ${modulename}_form_alter(&amp;$form, &amp;$form_state) {
 }
 </fillin>
  </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>hook_preprocess</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>/**
+ * Implements hook_preprocess_${hook}().
+ *
+ * ${description}
+ */
+function ${module}_preprocess_${hook}(&amp;$vars) {
+  ${cursor}
+}</fillin>
+ </item>
 </snippets>
