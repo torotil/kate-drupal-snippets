@@ -189,4 +189,13 @@ function ${modulename}_install() {
 }
  </fillin>
  </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>for</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>for ($${i} = 0; $${i} ${&lt; 10}; $${i}++) {
+  ${cursor}
+}</fillin>
+ </item>
 </snippets>
