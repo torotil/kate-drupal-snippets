@@ -220,4 +220,20 @@ core = ${6}.x
 package = ${package}
 dependencies[] = ${dep}</fillin>
  </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>hook_views_handlers</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>/**
+ * Implements hook_views_handlers().
+ */
+function ${modulename}_views_handlers() {
+  return array(
+    'handlers' => array(
+     ${cursor}
+    ),
+  );
+}</fillin>
+ </item>
 </snippets>
