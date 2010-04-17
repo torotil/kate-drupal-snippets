@@ -1,3 +1,4 @@
+# $Id: $
 Installation:
   Place this file into ~/.kde/share/apps/ktexteditor_snippets/data
 
