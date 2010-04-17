@@ -46,7 +46,7 @@ function ${module}_update_6${number}() {
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>&lt;?php
-// $Id$
+// $Id: $
 ${cursor}</fillin>
  </item>
  <item>
@@ -160,5 +160,33 @@ function ${modulename}_form_alter(&amp;$form, &amp;$form_state) {
 function ${module}_preprocess_${hook}(&amp;$vars) {
   ${cursor}
 }</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>hook_uninstall</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>/**
+ * Implements hook_uninstall().
+ */
+function ${modulename}_uninstall() {
+  drupal_uninstall_schema(${modulename});
+  // Remove variables.
+  db_query("DELETE FROM {variable} WHERE name LIKE '${modulename}_%%'");
+}
+ </fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>hook_install</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>/**
+ * Implements hook_install().
+ */
+function ${modulename}_install() {
+  drupal_install_schema('${modulename}');
+}
+ </fillin>
  </item>
 </snippets>
