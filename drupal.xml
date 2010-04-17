@@ -198,4 +198,14 @@ function ${modulename}_install() {
   ${cursor}
 }</fillin>
  </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>query-fetch</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>while ($item = db_fetch_${object}($result) {
+  ${cursor}
+}
+ </fillin>
+ </item>
 </snippets>
