@@ -236,4 +236,42 @@ function ${modulename}_views_handlers() {
   );
 }</fillin>
  </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>phpf</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>&lt;?php
+// $Id: $
+/**
+ * @file
+ * ${description}
+ */
+
+${cursor}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>hook_user</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>/**
+ * Implements hook_user().
+ */
+function ${modulename}_user($op, &amp;$edit, &amp;$account, $category = NULL) {
+  ${cursor}
+}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>hook_nodeapi</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>/**
+ * Implements hook_nodeapi().
+ */
+function ${modulename}_nodeapi(&amp;$node, $op, $a3 = NULL, $a4 = NULL) {
+  ${cursor}
+}</fillin>
+ </item>
 </snippets>
