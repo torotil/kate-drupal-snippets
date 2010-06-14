@@ -274,4 +274,19 @@ function ${modulename}_nodeapi(&amp;$node, $op, $a3 = NULL, $a4 = NULL) {
   ${cursor}
 }</fillin>
  </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>hook_views_api</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>/**
+ * Implements hook_views_api().
+ */
+function ${module}_views_api() {
+  return array(
+    'api' => '3.0-alpha1',
+  );
+}
+${cursor}</fillin>
+ </item>
 </snippets>
