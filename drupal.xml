@@ -1,13 +1,19 @@
-<snippets license="LGPL v3+" filetypes="PHP/PHP;PHP (HTML)" authors="Daniel Wehner" name="drupal">
+<snippets namespace="" license="LGPL v3+" filetypes="PHP/PHP;PHP (HTML)" authors="Daniel Wehner" name="drupal">
+ <script>// @TODO
+// Write a function which get's the current module. Thefore look at
+// a) the current fielname. 
+// b) a single.info file in a root dir
+// c) existing hooks: therefore look at "implements foo" and look in the functionname for for.
+// at the end static store this value for each file</script>
  <item>
   <displayprefix></displayprefix>
-  <match>hook</match>
+  <match>test</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>/**
  * Implements hook_${hook}().
  */
-function ${modulename}_${hook}(${params}) {
+function ${modulename}_${hook@}(${params}) {
   ${cursor}
 }</fillin>
  </item>
@@ -46,7 +52,7 @@ function ${module}_update_6${number}() {
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>&lt;?php
-// $Id: $
+// $Id$
 ${cursor}</fillin>
  </item>
  <item>
@@ -142,7 +148,7 @@ while ($item = ${db_fetch_object}($result)) {
   <fillin>/**
  * Implements hook_form_alter().
  */
-function ${modulename}_form_alter(&amp;$form, &amp;$form_state) {
+function ${modulename}_form_alter(&amp;$form, &amp;$form_state, &amp;$form_id) {
   ${cursor}
 }
 </fillin>
@@ -242,7 +248,7 @@ function ${modulename}_views_handlers() {
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>&lt;?php
-// $Id: $
+// $Id$
 /**
  * @file
  * ${description}
@@ -284,9 +290,59 @@ function ${modulename}_nodeapi(&amp;$node, $op, $a3 = NULL, $a4 = NULL) {
  */
 function ${module}_views_api() {
   return array(
-    'api' => '3.0-alpha1',
+    'api' => 2.0,
   );
 }
 ${cursor}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>tphp</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>&lt;?php ${cursor} ?></fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>tif</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>&lt;?php if (${cursor}): ?>
+  ${cursor2}
+&lt;?php endif; >&lt;
+${cursor3}</fillin>
+ </item>
+ <item>
+  <displayprefix>hook</displayprefix>
+  <match>hook</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>/**
+ * Implements hook_${hook}().
+ *
+ * ${description@}
+ */
+function ${module@}_${hook}(${$params@}) {
+  ${cursor@}
+}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>fe</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>'#${element}' => ${@},</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>opt_def</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>  function option_definition() {
+    $options = parent::option_definition();
+    ${cursor}
+
+    return $options;
+  }</fillin>
  </item>
 </snippets>
