@@ -1,4 +1,4 @@
-<snippets namespace="" license="LGPL v3+" filetypes="PHP/PHP;PHP (HTML)" authors="Daniel Wehner" name="drupal">
+<snippets license="LGPL v3+" filetypes="PHP/PHP;PHP (HTML)" snippetlicense="public domain" authors="Daniel Wehner" name="drupal">
  <script>// @TODO
 // Write a function which get's the current module. Thefore look at
 // a) the current fielname. 
@@ -344,5 +344,14 @@ function ${module@}_${hook}(${$params@}) {
 
     return $options;
   }</fillin>
+ </item>
+ <item>
+  <displayprefix>if</displayprefix>
+  <match>if</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>if ($${}) {
+  $${}
+}</fillin>
  </item>
 </snippets>
