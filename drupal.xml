@@ -24,7 +24,7 @@ function module(src) {
   <match>function-call-example</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
-  <fillin>${fn`getModuleName`}</fillin>
+  <fillin>${fn`module`}</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
@@ -36,7 +36,7 @@ function module(src) {
  *
  * ${description}
  */
-function ${module}_update_6${number}() {
+function ${fn`module`}_update_6${number}() {
   $ret = array();
   ${cursor}
 
@@ -120,7 +120,7 @@ if ($cache == 0) {
  *
  * Change weight of ${module} to ${weight}
  */
-function ${module}_update_6${number}() {
+function ${fn`module`}_update_6${number}() {
   $ret = array();
   update_sql($ret, "UPDATE {system} set weight = ${weight} WHERE type = 'module' AND name = '${module}'");
 
@@ -157,7 +157,7 @@ while ($item = ${db_fetch_object}($result)) {
   <fillin>/**
  * Implements hook_form_alter().
  */
-function ${modulename}_form_alter(&amp;$form, &amp;$form_state, &amp;$form_id) {
+function ${fn`module`}_form_alter(&amp;$form, &amp;$form_state, &amp;$form_id) {
   ${cursor}
 }
 </fillin>
@@ -172,7 +172,7 @@ function ${modulename}_form_alter(&amp;$form, &amp;$form_state, &amp;$form_id) {
  *
  * ${description}
  */
-function ${module}_preprocess_${hook}(&amp;$vars) {
+function ${fn`module`}_preprocess_${hook}(&amp;$vars) {
   ${cursor}
 }</fillin>
  </item>
@@ -184,7 +184,7 @@ function ${module}_preprocess_${hook}(&amp;$vars) {
   <fillin>/**
  * Implements hook_uninstall().
  */
-function ${modulename}_uninstall() {
+function ${fn`module`}_uninstall() {
   drupal_uninstall_schema(${modulename});
   // Remove variables.
   db_query("DELETE FROM {variable} WHERE name LIKE '${modulename}_%%'");
@@ -199,7 +199,7 @@ function ${modulename}_uninstall() {
   <fillin>/**
  * Implements hook_install().
  */
-function ${modulename}_install() {
+function ${fn`module`}_install() {
   drupal_install_schema('${modulename}');
 }
  </fillin>
@@ -243,7 +243,7 @@ dependencies[] = ${dep}</fillin>
   <fillin>/**
  * Implements hook_views_handlers().
  */
-function ${modulename}_views_handlers() {
+function ${fn`module`}_views_handlers() {
   return array(
     'handlers' => array(
      ${cursor}
@@ -273,7 +273,7 @@ ${cursor}</fillin>
   <fillin>/**
  * Implements hook_user().
  */
-function ${modulename}_user($op, &amp;$edit, &amp;$account, $category = NULL) {
+function ${fn`module`}_user($op, &amp;$edit, &amp;$account, $category = NULL) {
   ${cursor}
 }</fillin>
  </item>
@@ -297,7 +297,7 @@ function ${modulename}_nodeapi(&amp;$node, $op, $a3 = NULL, $a4 = NULL) {
   <fillin>/**
  * Implements hook_views_api().
  */
-function ${module}_views_api() {
+function ${fn`module`}_views_api() {
   return array(
     'api' => 2.0,
   );
