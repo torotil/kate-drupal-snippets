@@ -1,21 +1,30 @@
-<snippets license="LGPL v3+" filetypes="PHP/PHP;PHP (HTML)" snippetlicense="public domain" authors="Daniel Wehner" name="drupal">
+<snippets namespace="" license="LGPL v3+" filetypes="PHP/PHP;PHP (HTML)" authors="Daniel Wehner" name="drupal">
  <script>// @TODO
 // Write a function which get's the current module. Thefore look at
 // a) the current fielname. 
 // b) a single.info file in a root dir
 // c) existing hooks: therefore look at "implements foo" and look in the functionname for for.
-// at the end static store this value for each file</script>
+// at the endstatic store this value for each file
+
+function getFileName(src) {
+  return document.fileName();
+}
+
+function getModuleName(src) {
+  var fileName = getFileName(src);
+  var splits = fileName.split('.', 1);
+  return splits[0];
+}
+
+function module(src) {
+  return getModuleName(src);
+}</script>
  <item>
   <displayprefix></displayprefix>
-  <match>test</match>
+  <match>function-call-example</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
-  <fillin>/**
- * Implements hook_${hook}().
- */
-function ${modulename}_${hook@}(${params}) {
-  ${cursor}
-}</fillin>
+  <fillin>${fn`getModuleName`}</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
@@ -313,17 +322,17 @@ ${cursor}</fillin>
 ${cursor3}</fillin>
  </item>
  <item>
-  <displayprefix>hook</displayprefix>
+  <displayprefix></displayprefix>
   <match>hook</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>/**
  * Implements hook_${hook}().
  *
- * ${description@}
+ * ${description}
  */
-function ${module@}_${hook}(${$params@}) {
-  ${cursor@}
+function %{fn`module`}_${hook}(${$params@}) {
+  ${cursor}
 }</fillin>
  </item>
  <item>
@@ -349,9 +358,9 @@ function ${module@}_${hook}(${$params@}) {
   <displayprefix>if</displayprefix>
   <match>if</match>
   <displaypostfix></displaypostfix>
-  <displayarguments></displayarguments>
-  <fillin>if ($${}) {
-  $${}
+  <displayarguments>(cond)</displayarguments>
+  <fillin>if (${cond}) {
+  ${ }
 }</fillin>
  </item>
 </snippets>
