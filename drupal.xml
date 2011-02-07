@@ -1,4 +1,4 @@
-<snippets namespace="" license="LGPL v3+" filetypes="PHP/PHP;PHP (HTML)" authors="Daniel Wehner" name="drupal">
+<snippets namespace="" license="LGPL v3+" filetypes="PHP/PHP;PHP (HTML)" snippetlicense="public domain" authors="Daniel Wehner" name="drupal">
  <script>// @TODO
 // Write a function which get's the current module. Thefore look at
 // a) the current fielname. 
@@ -19,13 +19,6 @@ function getModuleName(src) {
 function module(src) {
   return getModuleName(src);
 }</script>
- <item>
-  <displayprefix></displayprefix>
-  <match>function-call-example</match>
-  <displaypostfix></displaypostfix>
-  <displayarguments></displayarguments>
-  <fillin>${fn`module`}</fillin>
- </item>
  <item>
   <displayprefix></displayprefix>
   <match>hook_update_N</match>
@@ -361,6 +354,22 @@ function %{fn`module`}_${hook}(${$params@}) {
   <displayarguments>(cond)</displayarguments>
   <fillin>if (${cond}) {
   ${ }
+}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>hook_views_data</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>
+/**
+ * Implements hook_views_data().
+ */
+function %{fn`module`}_views_data() {
+  $data = array();
+  ${cursor}
+
+  return $data;
 }</fillin>
  </item>
 </snippets>
