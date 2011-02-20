@@ -1,4 +1,4 @@
-<snippets namespace="" license="LGPL v3+" filetypes="PHP/PHP;PHP (HTML)" snippetlicense="public domain" authors="Daniel Wehner" name="drupal">
+<snippets namespace="" license="LGPL v3+" filetypes="PHP/PHP;PHP (HTML)" authors="Daniel Wehner" name="drupal">
  <script>// @TODO
 // Write a function which get's the current module. Thefore look at
 // a) the current fielname. 
@@ -59,7 +59,7 @@ ${cursor}</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>simpletest</match>
+  <match>test</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>class ${class} extends ${DrupalWebTestCase} {
@@ -80,7 +80,7 @@ ${cursor}</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>simpletest_method</match>
+  <match>test_method</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>public function test${name}() {
